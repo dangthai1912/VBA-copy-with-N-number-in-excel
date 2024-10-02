@@ -1,0 +1,17 @@
+Option Explicit
+Sub PasteMultipleX()
+
+Dim LRow As Long, LRow2 As Long, x As Integer, y As Integer
+LRow = Range("B" & Rows.Count).End(xlUp).Row
+
+For x = 3 To LRow
+y = Range("B" & x).Offset(, 1).Value
+    For y = 1 To y
+        LRow2 = Range("F" & Rows.Count).End(xlUp).Offset(1).Row
+        Range("B" & x).Copy
+        Range("F" & LRow2).PasteSpecial xlPasteValues
+    Next y
+Next x
+
+End Sub
+
